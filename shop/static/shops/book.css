@@ -1,0 +1,45 @@
+.book {
+  display: flex;
+  flex-direction: column;
+  /* margin-top: auto; */
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.book a {
+  text-decoration: none;
+  color: black;
+  transition: all 0.2s ease;
+  padding: 1rem;
+}
+
+.book a:hover,
+.book a:active {
+  transform: scale(1.1);
+  background-color: #516590;
+  color: white;
+  margin-top: auto
+}
+
+.book img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.book h3 {
+  margin: 0.25rem 0;
+}
+
+.book p {
+  color: #666666;
+  margin: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.book:hover p,
+.book:active p {
+  color: white;
+}

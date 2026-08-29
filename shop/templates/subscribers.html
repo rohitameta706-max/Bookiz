@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Subscribed - Bookiz{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'shops/subscribers.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="success-main">
+    <div class="success-card">
+        <div class="success-icon">🎉</div>
+        <h1>Welcome to the ChapterOne Readers Club!</h1>
+        <p>Thank you for subscribing to the Bookiz newsletter. You're all set to receive weekly book recommendations, author interviews, and exclusive 15% off discounts straight to your inbox.</p>
+        
+        <div class="success-actions">
+            <a href="{% url 'starting-page' %}" class="btn-primary">Back to Home</a>
+            <a href="{% url 'all-books-page' %}" class="btn-secondary">Browse All Books</a>
+        </div>
+    </div>
+</main>
+{% endblock %}

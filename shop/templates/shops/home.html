@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+ Bookiz | Online Bookstore
+{% endblock title %}
+
+{% block css_files %}
+ <link rel="stylesheet" href="{% static "shops/book.css" %}"/>
+ <link rel="stylesheet" href="{% static "shops/index.css" %}"/>
+{% endblock css_files %}
+
+{% block content %}
+      <section id="welcome">
+         <header>
+            <img src="{% static "shops/images/book.webp" %}" alt="Bookiz Bookstore Logo" />
+            <h2>BOOKIZ</h2>
+         </header>
+         <p>DISCOVER STORIES • EXPAND YOUR MIND • COLLECT FAVORITES</p>
+         <a href="#latest-posts" class="cta-button">Browse New Arrivals</a>
+      </section>
+
+      <section id="latest-posts">
+         <h2>OUR NEW ARRIVALS</h2>
+         <div class="books-grid">
+            {% for book in books %}
+               {% include "shops/includes/book.html" %}
+            {% empty %}
+               <p class="no-books">No new arrivals at the moment. Check back soon!</p>
+            {% endfor %}
+         </div>
+      </section>
+
+      <section id="about">
+         <h2>Why Shop With Us?</h2>
+         <p>We love books, we love helping fellow readers find their next great story, and we enjoy bringing new literary worlds straight to your doorstep.</p>
+         <p>Our goal is to keep your bookshelf growing—and if we can help spark your imagination, we'd be thrilled!</p>
+      </section>
+
+{% endblock%}

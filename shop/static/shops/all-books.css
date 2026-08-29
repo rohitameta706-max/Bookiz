@@ -1,0 +1,390 @@
+body {
+  margin: 0;
+  background: #f5f6f8;
+  color: #1f2937;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
+#all-books {
+  width: 92%;
+  max-width: 1200px;
+  margin: 4rem auto 6rem;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.0);
+}
+
+#all-books h2 {
+  text-align: center;
+  margin: 0 0 0.7rem;
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  color: #111827;
+}
+
+#all-books h2::after {
+  content: "";
+  display: block;
+  width: 52px;
+  height: 4px;
+  margin: 0.8rem auto 0;
+  background: #4f0aa8;
+  border-radius: 999px;
+}
+
+
+.search-filter-form {
+  width: 100%;
+  max-width: 1075px;
+
+  margin: 3rem auto 2.5rem;
+
+  padding: 1.5rem;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.8rem;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  box-shadow:
+    0 4px 15px rgba(15, 23, 42, 0.05);
+
+  flex-wrap: wrap;
+}
+
+
+.search-filter-form input[type="text"] {
+  flex: 1;
+  min-width: 260px;
+
+  height: 46px;
+
+  box-sizing: border-box;
+
+  padding: 0 1rem;
+
+  font-size: 0.95rem;
+  font-family: inherit;
+
+  color: #1f2937;
+
+  background: #f9fafb;
+
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+}
+
+.search-filter-form input[type="text"]::placeholder {
+  color: #9ca3af;
+}
+
+.search-filter-form input[type="text"]:focus {
+  background: #ffffff;
+
+  border-color: #4f0aa8;
+
+  box-shadow: 0 0 0 3px rgba(79, 10, 168, 0.1);
+}
+
+
+.search-filter-form select {
+  height: 46px;
+
+  min-width: 180px;
+
+  padding: 0 2.5rem 0 1rem;
+
+  font-size: 0.95rem;
+  font-family: inherit;
+
+  color: #374151;
+
+  background-color: #f9fafb;
+
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+
+  outline: none;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.search-filter-form select:focus {
+  border-color: #4f0aa8;
+  box-shadow: 0 0 0 3px rgba(79, 10, 168, 0.1);
+}
+
+.search-filter-form button,
+.search-filter-form input[type="submit"] {
+  height: 46px;
+  padding: 0 1.5rem;
+  border: none;
+  border-radius: 9px;
+  background: #4f0aa8;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(79, 10, 168, 0.2);
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.search-filter-form button:hover,
+.search-filter-form input[type="submit"]:hover {
+  background: #390281;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(79, 10, 168, 0.25);
+}
+
+.search-filter-form button:active,
+.search-filter-form input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+#all-books ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.8rem;
+}
+
+.book {
+  width: 100%;
+}
+
+.book a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 24rem;
+  box-sizing: border-box;
+  padding: 1.8rem 1.5rem 1.4rem;
+  text-align: center;
+  background: #ffffff;
+  color: #1f2937;
+  text-decoration: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow:
+    0 3px 10px rgba(15, 23, 42, 0.05);
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.book a::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: #4f0aa8;
+
+  transform: scaleX(0);
+
+  transform-origin: center;
+
+  transition: transform 0.25s ease;
+}
+
+.book a:hover::before {
+  transform: scaleX(1);
+}
+
+.book a:hover {
+  transform: translateY(-6px);
+
+  border-color: #ddd6fe;
+
+  box-shadow:
+    0 15px 30px rgba(15, 23, 42, 0.1);
+}
+
+
+.book img {
+  width: 7.2rem;
+  height: 7.2rem;
+  object-fit: contain;
+  margin: 0.2rem 0 1.3rem;
+  /* border-radius: 50%; */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.book a:hover img {
+  transform: scale(1.07);
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.book h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  font-weight: 750;
+  color: #111827;
+  transition: color 0.2s ease;
+}
+
+.book a:hover h3 {
+  color: #4f0aa8;
+}
+
+.book p {
+  margin: 0;
+  max-width: 300px;
+  color: #6b7280;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.book p:last-of-type {
+  margin-top: 0.45rem;
+
+  color: #374151;
+
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+
+.book a::after {
+  content: "View Book  →";
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: auto;
+
+  min-width: 125px;
+
+  padding: 0.7rem 1.15rem;
+
+  box-sizing: border-box;
+
+  background: #4f0aa8;
+  color: #ffffff;
+
+  border-radius: 8px;
+
+  font-size: 0.88rem;
+  font-weight: 700;
+
+  box-shadow:
+    0 4px 10px rgba(79, 10, 168, 0.18);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.book a:hover::after {
+  background: #390281;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 14px rgba(79, 10, 168, 0.25);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  #all-books {
+    width: 90%;
+    max-width: 760px;
+  }
+
+  #all-books ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 1.5rem;
+  }
+
+  .search-filter-form {
+    max-width: 100%;
+  }
+}
+
+
+
+@media (max-width: 600px) {
+
+  #all-books {
+    width: 92%;
+    display: flex;
+    flex-direction: row;
+    margin: 3rem auto 4rem;
+  }
+
+  #all-books h2 {
+    font-size: 2rem;
+  }
+
+  .search-filter-form {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    padding: 1.2rem;
+
+    gap: 0.7rem;
+  }
+
+  .search-filter-form input[type="text"],
+  .search-filter-form select,
+  .search-filter-form button,
+  .search-filter-form input[type="submit"] {
+    width: 100%;
+  }
+
+  #all-books ul {
+    grid-template-columns: 1fr;
+
+    gap: 1.3rem;
+  }
+
+  .book a {
+    min-height: 23rem;
+
+    padding: 1.7rem 1.3rem 1.3rem;
+  }
+}

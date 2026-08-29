@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} BOOKIZ{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "app.css" %}">
+    <link rel="stylesheet" href="{% static "footer.css" %}">
+    {% block css_files %}{% endblock  %}
+</head>
+<body>
+    {% comment %} {% block navbar %}
+        <header id="main-navigation">
+        {% comment %} <h1><a href="{% url '' %}">BOOKIZ</a></h1
+        <h1><a>BOOKIZ</a></h1>
+        <nav>
+            {% comment %} <h1><a href="{% url "read-later" %}">Stored Posts</a></h1> {% endcomment %}
+            {% comment %} <h1><a href="{% url "" %}">All BOOKS</a></h1>
+            <h1><a href="{% url "" %}">MY CART</a></h1> 
+            <h1><a href="{% url "all-books-page" %}">All BOOKS</a></h1>
+            <h1><a>MY CART</a></h1>
+        </nav>
+        </header>
+    {% endblock %} {% endcomment %}
+    {% block navbar %}
+        <header id="main-navigation">
+            <h1><a href="{% url 'starting-page' %}">BOOKIZ</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'all-books-page' %}">All Books</a></li>
+                    <li><a href="{% url 'cart-page' %}">My Cart</a></li>
+                    <li><a href="{% url 'orders-page' %}">My Orders</a></li>
+                </ul>
+            </nav>
+        </header>
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block footer %}
+       <footer class="bookstore-footer">
+    <div class="footer-newsletter">
+        <div class="newsletter-container">
+            <h3>📖 Join the ChapterOne Readers Club</h3>
+            <p>Subscribe to receive weekly book recommendations, author interview alerts, and exclusive 15% off discounts.</p>
+            <form action="{% url 'subscribe-success-page' %}" method="POST">
+                {% csrf_token %}
+                <input type="email" name="email" placeholder="Enter your email address" required aria-label="Email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+            <div class="footer-main">
+                <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <a href="#" class="footer-logo">
+                    <span class="logo-icon">📚</span>
+                    <span class="logo-text">Bookiz</span>
+                    </a>
+                    <p class="brand-desc">
+                    Your independent neighborhood bookstore, now online. Bringing unforgettable stories, rare finds, and cozy reads directly to your doorstep since 2012.
+                    </p>
+                    <div class="social-links">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram">📸</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="Goodreads">🔖</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                    <li><a href="/#">Bestsellers</a></li>
+                    <li><a href="/#">New Releases</a></li>
+                    <li><a href="/#">Audiobooks</a></li>
+                    <li><a href="/#">Staff Picks</a></li>
+                    <li><a href="/#">Gift Cards</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Customer Care</h4>
+                    <ul>
+                    <li><a href="/#">Order Status</a></li>
+                    <li><a href="/#">Shipping & Delivery</a></li>
+                    <li><a href="/#">Returns & Refunds</a></li>
+                    <li><a href="/#">FAQs</a></li>
+                    <li><a href="/#">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Visit Our Flagship</h4>
+                    <p class="info-text">📍 456 Library Lane, Bookworm City, BC 90210</p>
+                    <p class="info-text">🕒 Mon–Sat: 9:00 AM – 8:00 PM<br>Sun: 10:00 AM – 6:00 PM</p>
+                    <p class="info-text">📞 (555) 123-4567</p>
+                </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-container">
+                <p>&copy; 2026 Bookiz Bookstore Inc. All rights reserved.</p>
+                <p>&copy; By Rohit Ameta. Unofficial.</p>
+                <div class="legal-links">
+                    <a href="/#">Privacy Policy</a>
+                    <span>&bull;</span>
+                    <a href="/#">Terms of Service</a>
+                </div>
+                <div class="payment-methods">
+                    <span>💳 Visa</span>
+                    <span>💳 MasterCard</span>
+                    <span>💳 Amex</span>
+                    <span>💳 PayPal</span>
+                </div>
+                </div>
+            </div>
+            </footer>
+      
+    {% endblock %}
+</body>
+</html>

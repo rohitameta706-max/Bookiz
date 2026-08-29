@@ -1,0 +1,113 @@
+
+#summary {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333333;
+}
+
+#summary h2 {
+    font-size: 2.2rem;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eaeaea;
+    letter-spacing: -0.5px;
+}
+
+/* Flex container to split details and image */
+#summary > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+/* Text Information Styling */
+#summary p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #555555;
+    flex: 1 1 300px;
+}
+
+/* Add To Cart Button Styles */
+.add-to-cart-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #2b6cb0;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #2c5282;
+}
+
+.add-to-cart-btn:active {
+    transform: scale(0.98);
+}
+
+#summary p strong {
+    color: #222222;
+    display: inline-block;
+    width: 90px;
+}
+
+#summary p:has(strong:contains("Price")) {
+    font-size: 1.25rem;
+    color: #2b7a05;
+    font-weight: bold;
+}
+
+/* Book Cover Image Styling */
+#summary img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    object-fit: cover;
+    flex: 0 1 250px;
+    transition: transform 0.3s ease;
+}
+
+#summary img:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 768px) {
+    #summary {
+        margin: 20px 15px;
+        padding: 20px;
+    }
+
+    #summary > div {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+    }
+
+    #summary p strong {
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    #summary img {
+        max-width: 220px;
+        margin-bottom: 20px;
+    }
+}

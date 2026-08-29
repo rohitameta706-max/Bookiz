@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Bookiz | All-Page{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "shops/all-books.css" %}"/>
+    <link rel="stylesheet" href="{% static "shops/book.css" %}"/>
+    <link rel="stylesheet" href="{% static "shops/index.css" %}"/>
+{% endblock %}
+
+{% block content %}
+    <section id="all-books">
+        <h2>All Books</h2>
+        <h3 style="text-align:center;margin-bottom:30px;border-bottom:5px solid #ccc;padding-bottom: 10px;">Find Your Next Read</h3>
+        
+        <form method="get" class="search-filter-form">
+            <div class="search-group">
+                <input type="text" name="q" placeholder="Search by title or author..." value="{{ request.GET.q }}">
+            </div>
+            <div class="category-group">
+                <select name="category">
+                    <option value="">All Categories</option>
+                    <option value="Story" {% if request.GET.category == "Story" %}selected{% endif %}>Story</option>
+                    <option value="Sci-fi" {% if request.GET.category == "Sci-fi" %}selected{% endif %}>Sci-fi</option>
+                    <option value="Productivity" {% if request.GET.category == "Sci-fi" %}selected{% endif %}>Productivity</option>
+                    <option value="Self-Help" {% if request.GET.category == "Sci-fi" %}selected{% endif %}>Self-Help</option>
+                    <option value="Fiction" {% if request.GET.category == "Sci-fi" %}selected{% endif %}>Fiction</option>
+                    <option value="Finance" {% if request.GET.category == "Sci-fi" %}selected{% endif %}>Finance</option>
+
+                </select>
+            </div>
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+
+        <ul class="books-grid" style="list-style: none; padding: 0; margin: 0;">
+            {% for book in all_books %}
+                <li>
+                    {% include "shops/includes/book.html" %}
+                </li>
+            {% empty %}
+                <p class="no-books" style="text-align: center; grid-column: 1 / -1; padding: 2rem;">No books available matching your search.</p>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}

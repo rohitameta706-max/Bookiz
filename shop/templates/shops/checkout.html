@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Checkout - BOOKIZ
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'shops/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<main class="checkout-container">
+
+    <h2>Checkout</h2>
+
+    <form method="POST" action="{% url 'success' %}">
+        {% csrf_token %}
+
+        <input type="text" name="name" placeholder="Full Name" required>
+
+        <input type="email" name="email" placeholder="Email" required>
+
+        <textarea name="address" placeholder="Delivery Address" required></textarea>
+
+        <button type="submit">
+            Place Order
+        </button>
+    </form>
+
+</main>
+
+{% endblock %}

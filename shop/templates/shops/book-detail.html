@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Bookiz | Book-Detail {{ book.title }}{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "shops/book-detail.css" %}"/>
+{% endblock %}
+
+{% block content %}
+ <section id="summary">
+    <h2>{{ book.title }}</h2>
+    <div>
+        <div>
+            <p><strong>Author:</strong> {{ book.author }}</p>
+            <p><strong>Category:</strong> {{ book.category }}</p>
+            <p><strong>Rating:</strong>⭐️ {{ book.rating }}</p>
+            <p><strong>Price:</strong> ₹{{ book.price }}</p>
+            <p>{{ book.description }}</p>
+        </div>
+        <img src="{{ book.images.url }}" alt="{{ book.title }}">
+    </div>
+    <form action="{% url 'add-to-cart' book.slug %}" method="POST">
+    {% csrf_token %}
+
+    {% if book.stock > 0 %}
+        <button type="submit" class="add-to-cart-btn">Add To Cart</button>
+    {% else %}
+        <button disabled>Out of Stock</button>
+    {% endif %}
+</form>
+</section>
+{% endblock %}
